@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row rounded-3 m-4 p-3 border border-2 border-light-subtle">
+        <div class="col-md-6">
+            <img src="../../../assets/img/Sign up-rafiki.svg" alt="">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center ">
+           
+                <form (ngSubmit)="signUpFun(rgisterForm)"  [formGroup]="rgisterForm" class="d-flex w-100 justify-content-center  flex-column">
+                    <label class="my-2" for="">Name</label>
+                    <input formControlName="name"  class="form-control" type="text" id="">
+
+                    <div id="alert" *ngIf="rgisterForm.get('name')?.errors && rgisterForm.get('name')?.touched">
+                        <p *ngIf="rgisterForm.get('name')?.getError('required')">Name are required !</p>
+                        <p *ngIf="rgisterForm.get('name')?.getError('minlength')">Name must contain at least 3 characters !</p>
+                        <p *ngIf="rgisterForm.get('name')?.getError('maxlength')">Name must contain maximum 14 characters !</p>
+                    </div>
+
+                    <label class="my-2" for="">Email</label>
+                    <input  formControlName="email" class="form-control" type="email"  id="">
+    
+                    <div id="alert" *ngIf="rgisterForm.get('email')?.errors && rgisterForm.get('email')?.touched">
+                        <p *ngIf="rgisterForm.get('email')?.getError('required')">Email are required !</p>
+                        <p *ngIf="rgisterForm.get('email')?.getError('email')">Email are incorrect !</p>                       
+                     </div>
+
+                    <label class="my-2" for="">Password</label>
+                    <input class="form-control" formControlName="password" type="password" id="">
+                    <div id="alert" *ngIf="rgisterForm.get('password')?.errors && rgisterForm.get('password')?.touched">
+                        <p *ngIf="rgisterForm.get('password')?.getError('required')">Password are required !</p>
+                        <p *ngIf="rgisterForm.get('password')?.getError('pattern')">Password must begin with uppercase and following at least 8 charecters and numbers!</p>
+                    </div>
+                    
+                    <label class="my-2"  for="">Age</label>
+                    <input class="form-control" formControlName="age" type="number" id="">
+                    <div id="alert" *ngIf="rgisterForm.get('age')?.errors && rgisterForm.get('age')?.touched">
+                        <p *ngIf="rgisterForm.get('age')?.getError('required')">Age are required !</p>
+                    </div>
+                    
+                    <label class="my-2"  for="">Phone</label>
+                    <input class="form-control" formControlName="phone" type="tel" id="">
+                    <div id="alert" *ngIf="rgisterForm.get('phone')?.errors && rgisterForm.get('phone')?.touched">
+                        <p *ngIf="rgisterForm.get('phone')?.getError('required')">phone are required !</p>
+                        <p *ngIf="rgisterForm.get('phone')?.getError('pattern')">Not an Egyption number !</p>
+                    </div>
+ 
+                    <button [disabled]="rgisterForm.invalid" class="btn login-button my-3 w-100 d-block"> Sign Up</button>
+                    <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="text-center">Already have an Account?</a>
+                    <p class="text-center text-info ">{{msg}}</p>               
+</form>
+          
+          
+        </div>
+    </div>
+</div>
+

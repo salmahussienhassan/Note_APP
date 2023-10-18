@@ -1,0 +1,93 @@
+<div class="container my-5">
+    <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+  
+      <div class="searchbar">
+        <input class="search_input text-white" type="text"  placeholder="Search..." [(ngModel)]="searchInput">
+        <a class="search_icon"><i class="fas fa-search"></i></a>
+      </div>
+      <div class="button d-flex justify-content-end p-1">
+
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn rounded-5 addNoteBtn ms-auto" >
+           + Add note
+        </button>
+    </div>
+    </div>
+    
+    </div>
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Your Note</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form (ngSubmit)="handleAddNote(addNoteForm)"  [formGroup]="addNoteForm">
+            <div class="modal-body">
+              <label for="">Title</label>
+              <input formControlName="title" type="text" class="form-control" name="" id="">
+
+              <label for="">Content</label>
+              <input formControlName="content" class="form-control" type="text">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn add">Add Note </button>
+              </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div class="container my-5">
+    <div class="row gy-4 py-5">
+        <div *ngFor="let note of notes|search:searchInput"  class="col-md-3 ">
+<div class="bg-body-tertiary border border-2 rounded-3 border-dark-subtle p-3 Card">
+    <div class="d-flex justify-content-between">
+        <h3>{{note.title}}</h3>
+        <div class="dropdown">
+            <i class="fa-solid fa-ellipsis-vertical settings-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <ul class="dropdown-menu">
+              <li><a (click)="setupUpdateNote(note)" class="dropdown-item text-info" data-bs-toggle="modal" data-bs-target="#updatednote" >Edit <i class="fa-solid fa-pen-to-square"></i></a></li>
+              <li><a (click)="handleDelete(note._id)" class="dropdown-item text-danger"   >Delete <i class="fa-solid fa-trash"></i></a></li>
+            </ul>
+          </div>
+    </div>
+
+   
+    <p>{{note.content}}</p>
+</div>
+         
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updatednote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Your Note</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form (ngSubmit)="handleUpdateNote()"  [formGroup]="updatedNoteForm">
+            <div class="modal-body">
+             
+              <input placeholder="Title..." formControlName="title" type="text" class="form-control" name="" id="">
+
+              <label for="">Content</label>
+              <textarea placeholder="Description..." formControlName="content" class="form-control" name="" id="" cols="30" rows="10"></textarea>
+            
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn add">Update Note </button>
+              </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+

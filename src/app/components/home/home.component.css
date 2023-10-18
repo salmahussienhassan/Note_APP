@@ -1,0 +1,107 @@
+:host {
+  background-color: #FEFBF3;
+}
+
+.dropdown-item, .dropdown {
+  cursor: pointer;
+}
+
+.add {
+  color: white;
+  background-color: #79B4B7;
+}
+
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #79B4B7;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  flex-grow: 1; /* Allow the input to grow and shrink */
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.4s linear, color 0.4s linear;
+}
+
+.search_input::-moz-placeholder {
+  color: white;
+}
+
+.search_input::placeholder {
+  color: white;
+}
+
+/* Adjustments for different screen sizes */
+@media (max-width: 576px) {
+  .search_input {
+    width: 100%;
+  }
+  .searchbar:hover > .search_input,
+  .search_input:focus {
+    width: 100%;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .search_input {
+    width: 250px;
+  }
+  .searchbar:hover > .search_input,
+  .search_input:focus {
+    width: 300px;
+  }
+}
+@media (min-width: 769px) {
+  .search_input {
+    width: 400px;
+  }
+  .searchbar:hover > .search_input,
+  .search_input:focus {
+    width: 450px;
+  }
+}
+.searchbar:hover > .search_icon,
+.search_input:focus + .search_icon {
+  background: white;
+  color: #e74c3c;
+}
+
+.addNoteBtn {
+  background-color: #79B4B7;
+  color: #FEFBF3;
+}
+
+.addNoteBtn:hover {
+  border: 1px solid black;
+  background-color: #FEFBF3;
+  color: black;
+}
+
+.Card {
+  transition: all 0.5s;
+}
+
+.Card:hover {
+  scale: 1.05;
+}/*# sourceMappingURL=home.component.css.map */

@@ -1,0 +1,25 @@
+.row {
+  background-color: #FEFBF3;
+}
+
+.login-button {
+  background-color: #79B4B7;
+}
+
+.login-button:hover {
+  background-color: #F7F7F7;
+  border: 1px solid #79B4B7;
+}
+
+#alert {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  background-color: #F16767;
+  color: #FEFBF3;
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  -o-border-radius: 0.4em;
+}/*# sourceMappingURL=login.component.css.map */
