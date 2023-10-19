@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit{
     });
   }
   loginWithFacebook(): void {
-   
+    this._Router.navigate(['/home'])
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
