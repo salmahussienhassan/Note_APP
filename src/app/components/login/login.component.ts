@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FacebookLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -10,9 +11,10 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class LoginComponent {
   msg:string=''
-  constructor(private _AuthService:AuthService,private _Router:Router){
+  constructor( private _AuthService:AuthService,private _Router:Router){
 
   }
+
 
 loginForm:FormGroup=new FormGroup(
   {
@@ -44,4 +46,5 @@ console.log(response)
   
 }
 }
+
 }
