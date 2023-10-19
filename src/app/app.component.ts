@@ -12,7 +12,7 @@ import {
 })
 export class AppComponent {
   title = 'note';
-  loginForm!: FormGroup;
+loginForm!: FormGroup;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
 
