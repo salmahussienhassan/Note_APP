@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <img src="../../../assets/img/Login-rafiki.svg" alt="">
         </div>
-        <div class="col-md-6  d-flex justify-content-center align-items-center ">
-           
+        <div class="col-md-6 flex-column d-flex justify-content-center align-items-center ">
+          
                 <form (ngSubmit)="loginFun(loginForm)"  [formGroup]="loginForm" class="d-flex w-100 justify-content-center  flex-column">
                     <label class="my-2" for="">Email</label>
                     <input formControlName="email" class="form-control" type="email" name="" id="">
@@ -26,9 +26,18 @@
                     </div>
 
                     <button [disabled]="loginForm.invalid" class="btn login-button my-3 w-100 d-block">Login</button>
+                    
+                    <p class="text-center text-info ">{{msg}}</p> 
+                    
                     <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="text-center">Create A New Account</a>
 
-                    <p class="text-center text-info ">{{msg}}</p> 
+                    <p class="text-center text-info fs-4">OR</p>
+
+                    <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+                        <button (click)="loginWithFacebook()" class="w-75 text-white facebook btn"> <i class="fa-brands fa-facebook"></i> Login With facebook</button>
+                       <button class=" w-75 text-white bg-danger btn">  <i class="fa-brands fa-google"></i> Login With Google</button>
+                    
+                       </div>
                 </form>
           
           

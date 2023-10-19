@@ -9,13 +9,25 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   msg:string=''
-  constructor( private _AuthService:AuthService,private _Router:Router){
+  
+  constructor( private _AuthService:AuthService,private _Router:Router, private socialAuthService: SocialAuthService){
 
   }
+  ngOnInit(): void {
 
+    this.socialAuthService.authState.subscribe((user) => {
+      this._AuthService.socialUser = user;
+      this._AuthService.isLoggedin = user != null;
+    });
+  }
+  loginWithFacebook(): void {
+   
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
 
+  
 loginForm:FormGroup=new FormGroup(
   {
    
