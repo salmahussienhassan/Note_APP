@@ -9,8 +9,10 @@ import { constant } from './constant';
   providedIn: 'root'
 })
 export class AuthService {
+  
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
+
   constructor(private _HttpClient:HttpClient,private _Router:Router, private socialAuthService: SocialAuthService) { }
 
 login(data:any):Observable<any>{
