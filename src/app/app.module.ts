@@ -18,14 +18,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SearchPipe } from './core/pipe/search.pipe';
 
-
-import {
-  FacebookLoginProvider,
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from '@abacritt/angularx-social-login';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,21 +39,10 @@ import {
     BrowserAnimationsModule,
     NgxSpinnerModule,
     FormsModule,
-    SocialLoginModule,
+ 
   ],
   providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('Facebook-App-ID-Goes-Here'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
+   
     {provide:HTTP_INTERCEPTORS, useClass:HeaderInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor,multi:true}
   ],

@@ -10,8 +10,7 @@ import { constant } from './constant';
 })
 export class AuthService {
   
-  socialUser!: SocialUser;
-  isLoggedin?: boolean = undefined;
+
 
   constructor(private _HttpClient:HttpClient,private _Router:Router, private socialAuthService: SocialAuthService) { }
 

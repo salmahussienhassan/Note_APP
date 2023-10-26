@@ -1,6 +1,5 @@
-import { FacebookLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -9,24 +8,14 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
   msg:string=''
+ 
+  constructor(  private _AuthService:AuthService,private _Router:Router, ){
+
+  }
+ 
   
-  constructor( private _AuthService:AuthService,private _Router:Router, private socialAuthService: SocialAuthService){
-
-  }
-  ngOnInit(): void {
-
-    this.socialAuthService.authState.subscribe((user) => {
-      this._AuthService.socialUser = user;
-      this._AuthService.isLoggedin = user != null;
-    });
-  }
-  loginWithFacebook(): void {
-    this._Router.navigate(['/home'])
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
   
 loginForm:FormGroup=new FormGroup(
   {
