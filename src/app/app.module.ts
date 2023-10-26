@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SearchPipe } from './core/pipe/search.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ import { SearchPipe } from './core/pipe/search.pipe';
  
   ],
   providers: [
-   
+    
     {provide:HTTP_INTERCEPTORS, useClass:HeaderInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor,multi:true}
   ],
